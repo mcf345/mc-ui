@@ -1,0 +1,385 @@
+@import './mixin/flex.scss';                // flex(主轴,交叉轴,方向,换行,多轴线对齐) / flex-self(对齐,(布满||固定),顺序)
+@import './mixin/text-overflow.scss';       // 文本格式化超出省略号  参数：宽度,单行/多行
+@import './mixin/position-absolute.scss';   // 绝对定位  参数：上,右,下,左
+@import './mixin/triangle.scss';            // 画三角形  参数：宽度,朝向,颜色
+@import './mixin/hr.scss';                  // 添加分割线  参数：位置,间隔
+@import './mixin/price-before.scss';        // 价格¥前加
+
+
+// 此文件为项目主题样式测试文件
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ // 主题背景色
+$main-background-color: #51d0d0;
+// 导航栏标题颜色
+$main-title-color: #fff;
+
+// 环形进度条、按钮状态颜色
+// 已完成
+$circle-progress-color-finish: #29c660;
+// 未报工
+$circle-progress-color-notreport: #757575;
+// 部分报工
+$circle-progress-color-during: #1d87cf;
+
+// 初始化弹层的flex问题
+.PopupInit {
+	flex: initial !important;
+}
+
+// 按钮的边框线在这里去除
+uni-button:after {
+	border: none !important;
+}
+
+.x-bc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.f-dc {
+	display: flex;
+	flex-direction: column;
+}
+
+/*flex布局*/
+
+.x-ec {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+/* x水平排列*/
+.x-f {
+	display: flex;
+	align-items: center;
+}
+/*x两端且水平居中*/
+.x-bc {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/*x平分且水平居中*/
+.x-ac {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+/*x水平靠上对齐*/
+.x-start {
+	display: flex;
+	align-items: flex-start;
+}
+/*x水平靠下对齐*/
+.x-end {
+	display: flex;
+	align-items: flex-end;
+}
+/*上下左右居中*/
+.x-c {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/*y竖直靠左*/
+.y-start {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+/*y竖直靠右*/
+.y-end {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+/*y竖直居中*/
+.y-f {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* y竖直两端*/
+.y-b {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/*y竖直两端居中*/
+.y-bc {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+// uview2中的表单组件，在 u-form-item 上增加这个类名，可以实现上下布局
+.TopOption {
+	.u-form-item__body {
+		flex-direction: column !important;
+	}
+}
+
+// 设置导航栏背景色
+// u-status-bar 是安全高度开启时的背景色
+//u-navbar__content 是主题内容背景色
+.u-navbar {
+	width: 100%;
+	
+	// 顶部导航栏 navbar点击左侧会有改变透明的的操作，直接强制赋值为1
+	&__content {
+		&__left {
+			opacity: 1 !important;
+		}
+		
+		// title标题颜色
+		&__title {
+			color:	$main-title-color !important;
+		}
+		
+	}
+	
+	// 设置背景色以及安全高度站位背景色
+	.u-navbar__content,.u-status-bar {
+		background-color: $main-background-color !important;
+	}
+}
+
+// 自定义弹层
+.Popup_Main {
+	flex: inherit !important;
+	
+	// 容器
+	.Popup_Main_Content {
+		// background-color: #fff;
+		background-color: #f7f7f7;
+		display: flex;
+		flex-direction: column;
+		
+		.Popup_Main_Content_MainBox {
+			flex: 1;
+			overflow: auto;
+			
+			.Popup_Form {
+				
+				// 部分form表单需要上下排布 
+				.TopOption {
+				
+					.u-form-item__body {
+						flex-direction: column !important;
+					}
+				}
+				
+				.Init_Item_PadLeft {
+					padding-left: 0 !important;
+				}
+			}
+		}
+		
+		.Popup_Main_Content_BottomBox {
+			// height: 100rpx;
+			padding: 16rpx 16rpx;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			background-color: #fff;
+			border-top: 1px solid #f9f9f9;
+			
+			uni-button {
+				margin-left: initial !important;
+				margin-right: initial !important;
+			}
+			
+			.moreBtn {
+				width: fit-content;
+				min-width: 200rpx;
+				max-width: 30%;
+			}
+			
+			.content_bottom_primary_Btn {
+				background-color: #51d0d0;
+				color: #fff;
+			}
+		}
+	}
+}
+
+// 自定义页面框架样式
+.content {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	
+	// 主内容
+	.content_main {
+		flex: 1;
+		overflow: auto;
+	}
+	
+	// 底部内容
+	.content_bottom {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		height: 70px;
+		line-height: 70px;
+		padding: 6px 15px;
+		border-top: 1px solid #efefef;
+		uni-button {
+			margin-left: initial !important;
+			margin-right: initial !important;
+		}
+		
+		// 主题镂空按钮
+		.content_bottom_primary_plainBtn {
+			background-color: #fff;
+			color: #51d0d0;
+			border: 1px solid #51d0d0;
+		}
+		// 主题实面按钮
+		.content_bottom_primary_Btn {
+			background-color: #51d0d0;
+			color: #fff;
+		}
+		
+		.moreBtn {
+			width: fit-content;
+			min-width: 200rpx;
+			max-width: 30%;
+		}
+	}
+}
+
+
+// 通用卡片
+.content_main_CardBox {
+	position: relative;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	background-color: #fff;
+	min-height: 100rpx;
+	
+	&_TopBox {
+		padding: 0 0 20rpx 20rpx;
+		border-bottom: 1px solid #efefef;
+		margin-bottom: 10rpx;
+		
+		&_TitleName {
+			font-size: 24rpx;
+		}
+		
+		
+		.TagBox {
+			.theTag {
+				padding: 2rpx 4rpx !important;
+			}
+		}
+	
+	}
+	
+	// 序号
+	.content_main_CardBox_ordinal {
+		// position: absolute;
+		// left: 20rpx;
+		// top: 20rpx;
+		background-color: $main-background-color;
+		color: $main-title-color;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		min-width: 34rpx;
+		height: 34rpx;
+		font-size: 22rpx; 
+		border-radius: 8rpx;
+	}
+}
+
+.BottomBox {
+	width: 100%;
+	padding: 6px 15px;
+	border-top: 1px solid #efefef;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	background-color: #fff;
+}
+
+.CommonBtnSize {
+	min-width: 160rpx !important;
+	font-size: 14px !important;
+	padding: 2px 4px !important;
+}
+
+// 主题镂空按钮
+.content_bottom_primary_plainBtn {
+	background-color: #fff;
+	color: #51d0d0;
+	border: 1px solid #51d0d0;
+}
+// 主题实面按钮
+.content_bottom_primary_Btn {
+	background-color: #51d0d0;
+	color: #fff;
+}
+
+
+
+
+// 复选框样式 start
+.uni-checkbox-input {
+	border: 2px solid #d1d1d1 !important;
+}
+.uni-checkbox-input-checked {
+	background: #51d0d0;
+	color: #fff !important;
+	border-color: #51d0d0 !important;
+}
+// 复选框样式 End
+
+
+// 防止 My-Field 组件影响页面性能
+.FiledBox {
+	padding: 8rpx;
+	&_black {
+		color: #333;
+	}
+	&_grifola {
+		color: #999;
+	}
+	&_white {
+		color: #fff;
+	}
+	&_label {
+		font-size: 28rpx;
+		color: #333;
+		&_f28 {
+			font-size: 28rpx;
+		}
+		&_f24 {
+			font-size: 24rpx;
+		}
+		&_x15 {
+			font-size: 15px;
+		}
+	}
+	&_value {
+		margin-left: 10rpx;
+		color: #999;
+		&_f24 {
+			font-size: 24rpx;
+		}
+		&_x15 {
+			font-size: 15px;
+		}
+		&_x14 {
+			font-size: 14px;
+		}
+	}
+}

@@ -1,0 +1,99 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/index/comPage/dropDowm",
+			"style": {
+				"navigationBarTitleText": "单体下拉",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		},
+		{
+			"path": "pages/index/comPage/dropDowmMenu",
+			"style": {
+				"navigationBarTitleText": "复杂下拉",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		},
+		{
+			"path": "pages/index/comPage/tabs",
+			"style": {
+				"navigationBarTitleText": "标签栏",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		},
+		{
+			"path": "pages/index/comPage/inlineDateTime",
+			"style": {
+				"navigationBarTitleText": "内嵌时间",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		},
+		{
+			"path": "pages/index/comPage/Field",
+			"style": {
+				"navigationBarTitleText": "Field布局",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		},
+		{
+			"path": "pages/index/comPage/carouselRoll",
+			"style": {
+				"navigationBarTitleText": "消息轮播",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#51d0d0",
+				"backgroundColor": "#51d0d0"
+			}
+		}
+	],
+	"easycom": {
+		// 下载安装的方式需要前面的"@/"，npm安装的方式无需"@/"
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue",
+		"^m-(.*)": "@/uni_modules/mc-ui/components/m-$1/m-$1.vue"
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"cdlor": "#7A7E83",
+		"selectedColor": "#51d0d0",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/assets/image/tabbar-icons/Index.png",
+			"selectedIconPath": "static/assets/image/tabbar-icons/Index_Check.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/mine/mine",
+			"iconPath": "static/assets/image/tabbar-icons/me.png",
+			"selectedIconPath": "static/assets/image/tabbar-icons/me_Check.png",
+			"text": "我的"
+		}]
+	}
+}

@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4273371 */
+  src: url('@/static/tabbar-icons/iconfont.ttf') format('truetype');
+}
+
+.iconfont { 
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-youbiaokachi:before {
+  content: "\e677";
+}
+
+.icon-lailiaojianchadan:before {
+  content: "\e858";
+}
+
+.icon-shoujianjianyan:before {
+  content: "\e60a";
+}
+
+.icon-yuanliaolailiaojianyan:before {
+  content: "\e648";
+}
+
+.icon-a-xingzhuangjiehe4:before {
+  content: "\e600";
+}
+
+.icon-wangongjianyan:before {
+  content: "\e626";
+}
+
+.icon-shengchanguochengjian:before {
+  content: "\e665";
+}
+
+.icon-shouyefill:before {
+  content: "\e750";
+}
+
+.icon-tongji:before {
+  content: "\e607";
+}
+
+.icon-shebeiguanli:before {
+  content: "\ebb7";
+}
+
+.icon-jiahao:before {
+  content: "\e603";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\e628";
+}
+
+.icon-tongji1:before {
+  content: "\ec62";
+}
+
+.icon-Index_Check:before {
+  content: "\ec63";
+}
+
+.icon-gerenzhongxin-copy:before {
+  content: "\ec64";
+}
+
+.icon-shebeiguanli-copy:before {
+  content: "\ec65";
+}
+
